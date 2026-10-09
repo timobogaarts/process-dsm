@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PROCESS DSMs</title>
+<style>
+:root{--surface:#ffffff;--ink:#3d3330;--muted:#7d716c;--line:#8a7d76;--faint:#e5dfd3;
+  --model-bg:#f8ece7;--model:#b5583f;--accent:#d9480f;--band:#f0ede8;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--surface:#1f1a18;--ink:#ece4df;--muted:#a89a93;
+  --line:#6b5f59;--faint:#3a322e;--model-bg:#3a2620;--model:#e08a6f;--accent:#f0753f;
+  --band:#2a2421;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);
+  font:15px/1.5 ui-sans-serif,system-ui,sans-serif}
+main{max-width:920px;margin:0 auto;padding:40px 16px 64px}
+h1,h2{font-size:1.5rem;font-weight:650;margin:0 0 4px;padding-bottom:8px;
+  border-bottom:2px solid var(--model)}
+h2{margin-top:56px}
+.sub{color:var(--muted);margin:8px 0 32px}
+.sub .src{display:block;margin-bottom:4px;font-size:.85rem}
+.src code{font-family:ui-monospace,monospace}
+table{width:100%;border-collapse:separate;border-spacing:0 8px;table-layout:fixed}
+col.row{width:30%}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:.8rem;
+  text-transform:uppercase;letter-spacing:.05em;padding:0 12px}
+th small{text-transform:none;letter-spacing:0;font-family:ui-monospace,monospace;font-weight:400}
+td{padding:0}
+td.row{font-weight:600;padding:0 12px 0 0}
+a.card{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  margin-right:8px;padding:10px 14px;border:1px solid var(--faint);border-radius:8px;
+  background:var(--band);color:inherit;text-decoration:none;
+  box-shadow:inset 3px 0 0 0 var(--model);transition:border-color .12s,background .12s}
+a.card:hover{border-color:var(--model);background:var(--model-bg)}
+a.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a.card .n{color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums}
+.note{margin:16px 0 0;color:var(--muted);font-size:.85rem}
+@media (max-width:600px){td.row{display:block;width:auto;padding:12px 0 4px}
+  tr{display:block}td{display:inline-block;width:50%}td[colspan]{width:100%}thead{display:none}
+  table.three td{width:100%}td:empty{display:none}
+  a.card::before{content:attr(data-m);font-weight:600}}
+</style>
+</head>
+<body>
+<main>
+<h1>PROCESS as a graph: interactive DSMs</h1>
+<p class="sub"><span class="src">PROCESS as rewritten for cottax, from PROCESS at 2026-08-14, <code>c0ae5b2</code></span>
+Bogaarts, Rutten, Warmer &mdash; <em>Managing complexity for integrated design
+in fusion using a graph-based functional framework: PROCESS as a case study</em>.</p>
+<table>
+<colgroup><col class="row"><col><col><col></colgroup>
+<thead><tr><th></th><th>Tokamak<br><small>low_aspect_ratio_demo</small></th><th>Stellarator<br><small>stellarator_helias</small></th><th></th></tr></thead>
+<tbody>
+<tr><td class="row">Declared machine, by provenance</td><td><a class="card" data-m="Tokamak" href="provenance_tokamak.html"><span>Tokamak</span><span class="n">242 nodes</span></a></td><td><a class="card" data-m="Stellarator" href="provenance_stellarator.html"><span>Stellarator</span><span class="n">150 nodes</span></a></td><td></td></tr>
+<tr><td class="row">Declared machine, by structure</td><td><a class="card" data-m="Tokamak" href="texture_tokamak.html"><span>Tokamak</span><span class="n">242 nodes</span></a></td><td><a class="card" data-m="Stellarator" href="texture_stellarator.html"><span>Stellarator</span><span class="n">150 nodes</span></a></td><td></td></tr>
+<tr><td class="row">Coupled blocks: cut and closure</td><td><a class="card" data-m="Tokamak" href="blocks_tokamak.html"><span>Tokamak</span></a></td><td><a class="card" data-m="Stellarator" href="blocks_stellarator.html"><span>Stellarator</span></a></td><td></td></tr>
+<tr><td class="row">Architecture: MDF</td><td><a class="card" data-m="Tokamak" href="structure_low_aspect_ratio_demo_mdf.html"><span>Tokamak</span><span class="n">272 nodes</span></a></td><td><a class="card" data-m="Stellarator" href="structure_stellarator_helias_mdf.html"><span>Stellarator</span><span class="n">168 nodes</span></a></td><td></td></tr>
+<tr><td class="row">Architecture: IDF</td><td><a class="card" data-m="Tokamak" href="structure_low_aspect_ratio_demo_idf.html"><span>Tokamak</span><span class="n">269 nodes</span></a></td><td><a class="card" data-m="Stellarator" href="structure_stellarator_helias_idf.html"><span>Stellarator</span><span class="n">166 nodes</span></a></td><td></td></tr>
+<tr><td class="row">Architecture: SAND</td><td><a class="card" data-m="Tokamak" href="structure_low_aspect_ratio_demo_sand.html"><span>Tokamak</span><span class="n">269 nodes</span></a></td><td><a class="card" data-m="Stellarator" href="structure_stellarator_helias_sand.html"><span>Stellarator</span><span class="n">165 nodes</span></a></td><td></td></tr>
+</tbody>
+</table>
+<p class="note">Each page opens on its N2; switch to the XDSM in its toolbar (provenance order has no XDSM).
+Drag to pan, ctrl+scroll to zoom, hover a box to name it.</p>
+<h2>PROCESS as parsed: interactive DSMs</h2>
+<p class="sub"><span class="src">Reference PROCESS at 2026-08-14, <code>c0ae5b2</code></span>
+Rutten, Etman, Warmer &mdash; <em>Structuring multidisciplinary design analysis
+&amp; optimization codes with Design Structure Matrices</em>.</p>
+<table class="three">
+<colgroup><col class="row"><col><col><col></colgroup>
+<thead><tr><th></th><th>Tokamak<br><small>low_aspect_ratio_demo</small></th><th>Stellarator<br><small>stellarator_helias</small></th><th>Tokamak<br><small>large_tokamak</small></th></tr></thead>
+<tbody>
+<tr><td class="row">Collapsed</td><td><a class="card" data-m="Tokamak" href="xdsm_paper/collapsed_tokamak.html"><span>Tokamak</span><span class="n">53 models</span></a></td><td><a class="card" data-m="Stellarator" href="xdsm_paper/collapsed_stellarator.html"><span>Stellarator</span><span class="n">35 models</span></a></td><td><a class="card" data-m="Tokamak" href="xdsm_paper/collapsed_large_tokamak.html"><span>Tokamak</span><span class="n">53 models</span></a></td></tr>
+<tr><td class="row">Expanded + sequenced</td><td><a class="card" data-m="Tokamak" href="xdsm_paper/expanded_tokamak_sequenced.html"><span>Tokamak</span><span class="n">419 models</span></a></td><td><a class="card" data-m="Stellarator" href="xdsm_paper/expanded_stellarator_sequenced.html"><span>Stellarator</span><span class="n">208 models</span></a></td><td><a class="card" data-m="Tokamak" href="xdsm_paper/expanded_large_tokamak_sequenced.html"><span>Tokamak</span><span class="n">421 models</span></a></td></tr>
+<tr><td class="row">Overlap: tokamak and stellarator</td><td colspan="2"><a class="card" data-m="Tokamak and stellarator" href="xdsm_paper/overlap_supermodel.html"><span>Tokamak and stellarator</span></a></td><td></td></tr>
+</tbody>
+</table>
+<p class="note">Each page is one interactive matrix. Hover a mark to see its source, its target and
+the variables it carries (on the overlap, which machine has the coupling); hover a row to name it.
+Drag a box to zoom in, double-click to zoom back out; the toolbar at the top right pans and saves
+a PNG. The expanded matrices are large and take a few seconds to draw.</p>
+</main>
+</body>
+</html>
